@@ -20,7 +20,7 @@ available. It is faster than its predecesor and a little bit more intuitive that
 . `fastq-dump` is still available, but the line of thought of the developers is to erase it sooner than latter.
 
 ### Creating a folder for the data
-It is important to maintain onder in your projects. This extrapolates to the tools used inside
+It is important to maintain order in your projects. This extrapolates to the tools used inside
 each one of them. We will create a folder inside our disk where we will save the downloaded data:
 
 ~~~
@@ -33,11 +33,11 @@ $ cd ~/sra-toolkit/data/
 ~~~
 {: .bash}
 
-Inside this folder, we will download the data that we will use the rest of the lesson.
+Inside this folder, we will download the data that we will use for the rest of the lesson.
 
 ### Accessing to the data
 
-Uploadig the data used in a research project is now a must for the majority of the magazines.
+Uploadig the data used in a research project is now a must for the majority of the journals.
 We will go to the [paper-page](https://www.tandfonline.com/doi/full/10.1080/21678421.2021.1904994?scroll=top&needAccess=true) to access to the data-page from the NCBI.
 In this page, we will go to the aknowledgements section, were the 
 **Data availability statement** is found.
@@ -52,8 +52,8 @@ In this page, we will go to the aknowledgements section, were the
 Here, we will found the `Bioproject` number. This is a identification-code, linked to a page
 where the information concerning a project and its data is hoarded. For this paper, the number
 is: `PRJNA566436`. 
-With this information, we can open a NCBI page in our favorite internet brower, and paste this
-code in the search section. Then, a new pag with the search results will be displayed. Here, 
+With this information, we can open a NCBI page in our favorite internet browser, and paste this
+code in the search section. Then, a new page with the search results will be displayed. Here, 
 we will choose the `human gut metagenome` option:
 
 <a href="{{ page.root }}/fig/02-07-02.png">
@@ -87,7 +87,7 @@ on the **Send results to Run selector** option, at the top of the page:
 
 ###### Figure 4. Option to display a more informative resume of the data
 
-The resulting page (SRA Run Selector), will show the information the is located in the 
+The resulting page (SRA Run Selector), will show the information that is located in the 
 `Bioproject` and `Biosample` pages. Also, in the bottom we will find a table with useful 
 information provided by the authors. In order to obtain the *Accession* info, we will
 download a **Accession List** by clicking in this section of the **Select** square:
@@ -130,7 +130,7 @@ SRR10153515
 ~~~
 {: .output}
 
-### Using faterq-dump to download the data
+### Using fasterq-dump to download the data
 
 As mentioned at the beggining, `fasterq-dump` is the new version of `fastq-dump`. Let's see 
 some of the parameters that this new tool can offer:
@@ -162,18 +162,18 @@ With this statement, we will end with separate files for the forward and the rev
 (1.fastq and 2.fastq respectively). Nevertheless, the unmated reads (those present in
 the forward but without their complement in reverse and visceversa) will also be located
 in their respective file. This can be useful for special kind of analyses, but usually we
-will prefer to exclude the unmated reads from the next steps. Moreoevee, this option
+will prefer to exclude the unmated reads from the next steps. Moreover, this option
 will write each read with the four lines from the `FASTQ` format.
 
 #### --concatenate-reads
 
-The informatio of each read is concatenated and each new spot (information from the forward
+The information of each read is concatenated and each new spot (information from the forward
 and reverse) is written alongside the four lines characteristic of the `FASTQ` format.
 
 #### --split-spot
 
 This is the deafult option for `fasterq-dump`. The source file is split in a file containing
-the forward reads (_i.e._ 1.fastq) and the reverse ones (_i.e._ 2.fastq). Unmated reads are placed in a 3.fastq or SRA-code-name file. Each read is written with the 4 characteristic
+the forward reads (`_i.e._ 1.fastq`) and the reverse ones (`_i.e._ 2.fastq`). Unmated reads are placed in a `3.fastq` or SRA-code-name file. Each read is written with the 4 characteristic
 lines of the `FASTQ` format.
 Most of the sequencing projects are now in paired-end read format. This is also the case for 
 the reads that we will use, so this is the most reliable option.
@@ -218,7 +218,7 @@ fasterq-dump was killed (signal 13 SIGPIPE)
 
 As mentioned before, we will get the information in `FASTQ` format. `fasterq-dump` takes 
 shorter times to accomplish the task because its multi-thread capability. We can assign 
-how many threads we want `fasterq-dump` to use to the task, more threads is less time. We
+how many threads we want `fasterq-dump` to use to the task, more threads means less time. We
 can use a command to know the number of threads available in our working station:
 
 #### On Linux:
@@ -238,7 +238,7 @@ $ nproc --all
 ~~~
 {: .bash}
 
-Also, we can ask `fasterq-dump` to display the progress by the `-p` flag. So we will run an 
+Also, we can ask `fasterq-dump` to display the progress with the `-p` flag. So we will run an 
 example with the progress displayed, and with 12 threads:
 
 ~~~
@@ -267,7 +267,7 @@ SRR10153499_2.fastq
 ~~~
 {: .bash}
 
-Since `fasterq-dumb` does not take multiple accesions just one, we will do a `while` cycle 
+Since `fasterq-dump` does not take multiple accesions just one, we will do a `while` cycle 
 to proccess all the accessions in the `SRA-names.txt`:
 
 ~~~
